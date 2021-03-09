@@ -1,0 +1,96 @@
+/*
+Vamos a crear una animacion a partir
+de frames, y los vamos a hacer girar, 
+alternar y transformar
+
+*/
+
+@keyframes animacion_test{
+    from{
+        background-color: rgb(9, 211, 150);
+    }
+    to{
+        background-color: rgb(88, 30, 197);
+    }
+}
+
+
+@keyframes girar{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes label-animation{
+    from{
+        transform: rotate(0deg);
+        margin-left: 0;
+    }
+    to{
+        transform: rotate(180deg);
+        margin-left: 85vw;
+    }
+}
+
+/*vamos a dar las reglas de las clases*/
+
+.label-container{
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+
+}
+
+.label{
+    width: 64px;
+    background-color: rgb(60, 189, 85);
+    color:white;
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 20px;
+    text-align: center;
+    /*aqui es donde animamos*/
+    animation-name: label-animation;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+.loader{
+    width: 64px;
+    height: 64px;
+    border: 5px solid rgb(170, 30, 90);
+    border-top: 5px solid rgb(88, 190, 45);    
+    border-radius: 50%;
+    animation: girar 2s linear infinite;
+}
+
+.loader-doble{
+    width: 64px;
+    height: 64px;
+    border: 16px solid #2d11cc;
+    border-top: 16px solid rgb(216, 138, 21);
+    border-bottom: 16px solid rgb(218, 240, 23);    
+    border-radius: 50%;
+    animation: girar 2s ease-in-out infinite;
+}
+
+.animada{
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: animacion_test;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
