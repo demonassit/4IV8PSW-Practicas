@@ -42,7 +42,7 @@ function problema2(){
     //construir los vectores
 
     var v1 = [p2_x1, p2_x2, p2_x3, p2_x4, p2_x5];
-    var y1 = [p2_y1, p2_y2, p2_y3, p2_y4, p2_y5];
+    var v2 = [p2_y1, p2_y2, p2_y3, p2_y4, p2_y5];
 
     //ordenar los vectores
 
