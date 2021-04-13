@@ -43,7 +43,7 @@ function resetearContador(){
 }
 
 
-function grabar(){
+function grabarContador(){
     if(temporizador.textContent === '0.00'){
         console.log('click para iniciar el cronometro');
     }else{
