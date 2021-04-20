@@ -18,7 +18,7 @@ import java.sql.DriverManager;
 /*
 Statement nos ayuda a poder definir y manipular los datos de las bd
 creacion de la bd, insertar tablas, eleminar tablas,  create, drop, alter
-manipulacion de los datos, insert, update, delete
+    manipulacion de los datos, insert, update, delete
 */
 import java.sql.Statement;
 /*
