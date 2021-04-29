@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>CRUD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container" >
+            <br>
+            <div class="containerRegistro" >
+                <form method="post" name="formulario" action="guardar.jsp" >
+                    <table border="2" width="100%">
+                        <tr>
+                            <td width="50%" >
+                                Nombre:
+                            </td>
+                            <td width="50%">
+                                <input type="text" name="nombre" size="30" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%" >
+                                Ciudad:
+                            </td>
+                            <td width="50%">
+                                <input type="text" name="ciudad" size="30" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%" >
+                                Telefono:
+                            </td>
+                            <td width="50%">
+                                <input type="text" name="tel" size="30" >
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <input type="submit" value="Enviar Registro" >
+                    <input type="reset" value="Borrar Registro" >
+                </form>
+            </div>
+            <br>
+            <div class="containerConsulta" >
+                <br>
+                <a href="consultar.jsp" >Consultar la Tabla de Usuarios</a>
+            </div>
+        </div>
+    </body>
+</html>
