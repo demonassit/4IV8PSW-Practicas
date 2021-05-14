@@ -8,6 +8,9 @@
  *
  * @author demon
  */
+package Control;
+
+
 import java.sql.*;
 import java.util.*;
 
@@ -140,6 +143,9 @@ public class AccionesEmpleado {
     
     public static List<Empleado> getAllEmpleados(){
         List<Empleado> lista = new ArrayList<Empleado>();
+        Empleado e = new Empleado();
+        
+        System.out.println(e);
         try{
             Connection con = Conexion.getConnection();
             String q = "select * from empleados";
@@ -149,7 +155,7 @@ public class AccionesEmpleado {
             ResultSet rs = ps.executeQuery();
             //obtener los datos de la tabla
             while(rs.next()){
-                Empleado e = new Empleado();
+                
                 e.setId(rs.getInt(1));
                 e.setNombre(rs.getString(2));
                 e.setPassword(rs.getString(3));

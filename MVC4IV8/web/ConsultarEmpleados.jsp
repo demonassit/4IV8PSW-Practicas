@@ -5,6 +5,7 @@
 --%>
 
 <%@page import="java.util.List"%>
+<%@page import="Control.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,7 +30,10 @@
             <tbody>
                 <%
                     
+                try{    
                     List<Empleado> lista = AccionesEmpleado.getAllEmpleados();
+                    System.out.println(lista);
+                    
                     
                     for(Empleado e : lista){
                     %>
@@ -44,6 +48,12 @@
                     </tr>    
                     <%
                     }
+                }catch(Exception ex){
+                    System.out.println("Error");
+                    System.out.println(ex.getMessage());
+                }finally{
+
+                }
                     %>
                 
             </tbody>

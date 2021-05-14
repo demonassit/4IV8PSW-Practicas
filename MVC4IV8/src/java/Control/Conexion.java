@@ -8,6 +8,7 @@
  *
  * @author demon
  */
+package Control;
 
 import java.sql.*;
 
@@ -17,7 +18,7 @@ public class Conexion {
     
         String url, userName, password;
         
-        url = "jdbc:mysql:3306/localhost/Empleado";
+        url = "jdbc:mysql://localhost/empleados";
         userName = "root";
         password = "n0m3l0";
         
