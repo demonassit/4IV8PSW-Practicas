@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Modelo;
 
 /**
  *
  * @author demon
  */
-
-package Control;
-
 public class Empleado {
     
     private int id;
     private String nombre, password, email, pais;
     
     public Empleado(){
+    
     }
 
     public int getId() {

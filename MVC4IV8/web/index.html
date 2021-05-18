@@ -6,49 +6,46 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Bitacora de Empleados</title>
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="container" >
-            <div class="containerRegistro" >
-                <h1>Registro de Empleado</h1>
-                <br>
-                <form method="post" name="registroEmpleado" action="GuardarEmpleado">
+            <div class="registroEmpleado" >
+                <form method="post" name="registroempleado" action="guardarEmpleado">
                     <table border="2" >
                         <tr>
                             <td>Nombre:</td>
-                            <td><input type="text" name="nombre" size="30" ></td>
+                            <td><input type="text" name="nombre" size="30" ></td>        
                         </tr>
                         <tr>
                             <td>Password:</td>
-                            <td><input type="password" name="password" size="30" ></td>
+                            <td><input type="password" name="password" size="30" ></td>        
                         </tr>
                         <tr>
                             <td>Email:</td>
-                            <td><input type="email" name="email" size="30" ></td>
+                            <td><input type="email" name="email" size="30" ></td>        
                         </tr>
                         <tr>
                             <td>Pais:</td>
-                            <td><select name="pais" > 
+                            <td> <select name="pais"> 
                                     <option>Mexico</option>
                                     <option>Al que nadie quiere</option>
                                     <option>Por ahi</option>
                                     <option>En algun lugar</option>
-                                </select></td>
+                                </select> </td>        
                         </tr>
                         <tr>
-                            <td colspan="2" > <input type="submit" 
-                                                     value="Registrar Empleado" > </td>        
-                        </tr>
+                            <td colspan="2" ><input type="submit" 
+                                                    value="Registrar Empleado"></td>
+                        </tr>        
                     </table>
                 </form>
-            </div>   
-            <div>
-                <a href="ConsultarEmpleados.jsp">Consultar Tabla de Empleados</a>   
-                <br>
-                <a href="consulta" >porfis</a>
+            </div>
+            <br>
+            <div class="containerConsulta" >
+                <a href="consultarEmpleados.jsp" >Consultar Todos los Empleados</a>     
             </div>
         </div>
     </body>

@@ -3,19 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Control;
 
 /**
  *
  * @author demon
  */
-package Control;
-
 import java.sql.*;
 
 public class Conexion {
     
     public static Connection getConnection(){
-    
         String url, userName, password;
         
         url = "jdbc:mysql://localhost/empleados";
@@ -27,10 +25,10 @@ public class Conexion {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(url, userName, password);
-            System.out.println("Se conecto con la BD");
+            System.out.println("Se conecto a la BD");
         
         }catch(Exception e){
-            System.out.println("No se conecto con la BD");
+            System.out.println("No se conecto a la BD");
             System.out.println(e.getMessage());
         
         }

@@ -3,21 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Servlet;
 
 import Control.AccionesEmpleado;
-import Control.Empleado;
+import Modelo.Empleado;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author demon
  */
-public class actualizarempleado extends HttpServlet {
+public class guardarEmpleado extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,32 +36,82 @@ public class actualizarempleado extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            
+            /*
+            Vamos a crear la sesion de ese usuario
+            
+            */
+            
+            HttpSession sesionCli = request.getSession(true);
+            
+            //obtener los datos de la sesion
+            
+            String idsesion = sesionCli.getId();
+            
+            long fechacreacion = sesionCli.getCreationTime();
+            
+            long fechaultimoacceso = sesionCli.getLastAccessedTime();
+            
+            /*
+            Vamos a crear una "cookie" que se encargara de almacenar los datos
+            de la sesion
+            
+            */
+            
+            Integer cuenta = (Integer)sesionCli.getAttribute("cuenta.ss");
+            
+            if(cuenta == null){
+                //es la primera vez que entra
+                cuenta = new Integer(1);
+            }else{
+                cuenta = new Integer(cuenta.intValue()+1);
+            }
+            
+            //si es la primera vez que entra o si ha entrado con anterioridad
+            
+            sesionCli.setAttribute("cuenta.ss", cuenta);
+            
+            //vamos a saber que se esta almacenando en la cuenta
+            
+            System.out.println("Sesion: " + idsesion);
+            System.out.println("Fecha en que fue creada: " + new Date(fechacreacion).toString());
+            System.out.println("Fecha de ultimo acceso: " + new Date(fechaultimoacceso).toString());
+            
+            //vamos a obtener todos los parametros del hasmap
+            
+            Enumeration nombreParametros = sesionCli.getAttributeNames();
+            while(nombreParametros.hasMoreElements()){
+                String parametros = (String)nombreParametros.nextElement();
+                Object valor = sesionCli.getAttribute(parametros);
+                System.out.println("El parametro es: " + parametros 
+                        + "Su valor es: " + valor.toString());
+            }
             
             String nom, pass, email, pais;
-            int id;
             
-            id = Integer.parseInt(request.getParameter("id2"));
-            nom = request.getParameter("nombre2");
-            pass = request.getParameter("password2");
-            email = request.getParameter("email2");
-            pais = request.getParameter("pais2");
+            nom = request.getParameter("nombre");
+            pass = request.getParameter("password");
+            email = request.getParameter("email");
+            pais = request.getParameter("pais");
             
             Empleado e = new Empleado();
             
-            e.setId(id);
             e.setNombre(nom);
             e.setPassword(pass);
             e.setEmail(email);
             e.setPais(pais);
             
-            int estatus = AccionesEmpleado.ActualizarEmpleado(e);
+            
+            int estatus = AccionesEmpleado.registrarEmpleado(e);
+            
             
             if(estatus > 0){
-                response.sendRedirect("ConsultarEmpleados.jsp");
+                response.sendRedirect("registroEmpleados.jsp");
             }else{
                 response.sendRedirect("error.jsp");
-            
             }
+            
         }
     }
 

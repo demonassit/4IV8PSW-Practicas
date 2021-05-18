@@ -1,6 +1,6 @@
 <%-- 
     Document   : error
-    Created on : 13/05/2021, 05:30:11 PM
+    Created on : 14/05/2021, 06:18:40 PM
     Author     : demon
 --%>
 
@@ -13,6 +13,7 @@
     </head>
     <body>
         <h1>Sitio en Construcción</h1>
-        <a href="index.html" >Regresar al Menu Principal</a>     
+        <br>
+        <a href="index.html" >Regresar al Menu Principal</a>
     </body>
 </html>

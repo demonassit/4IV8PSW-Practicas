@@ -1,20 +1,22 @@
 <%-- 
-    Document   : ConsultarEmpleados
-    Created on : 13/05/2021, 05:47:11 PM
+    Document   : consultarEmpleados
+    Created on : 14/05/2021, 06:29:44 PM
     Author     : demon
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="Control.*" %>
+<%@page import="Modelo.Empleado"%>
+<%@page import="Control.AccionesEmpleado"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Tabla de Empleados</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Tabla General de Empleados</h1>
+        <h1>Tabla de Todos los Empleados</h1>
+        <br>
         <table border="2" >
             <thead>
                 <tr>
@@ -25,42 +27,28 @@
                     <th>Pais</th>
                     <th></th>
                     <th></th>
-                </tr>
+                </tr>        
             </thead>
             <tbody>
                 <%
-                    
-                try{    
                     List<Empleado> lista = AccionesEmpleado.getAllEmpleados();
-                    System.out.println(lista);
-                    
-                    
                     for(Empleado e : lista){
                     %>
                     <tr>
-                        <td> <%=e.getId() %> </td>
-                        <td> <%=e.getNombre() %> </td>
+                        <td> <%=e.getId()%> </td>
+                        <td> <%=e.getNombre()%> </td>
                         <td> <%=e.getPassword()%> </td>
                         <td> <%=e.getEmail()%> </td>
                         <td> <%=e.getPais()%> </td>
-                        <td> <a href="editar.jsp?id=<%=e.getId()%>" >Editar</a> </td>
-                        <td> <a href="borrar?id=<%=e.getId()%>" >Borrar</a> </td>
+                        <td> <a href="editarempleado.jsp?id=<%=e.getId()%>" >Editar</a> </td>
+                        <td> <a href="borrarempleado?id=<%=e.getId()%>" >Borrar</a> </td>
                     </tr>    
                     <%
                     }
-                }catch(Exception ex){
-                    System.out.println("Error");
-                    System.out.println(ex.getMessage());
-                }finally{
-
-                }
                     %>
-                
             </tbody>
-            
         </table>
-        <a href="index.html" >Regresar al Menu Principal</a> 
         <br>
-        
+        <a href="index.html" >Regresar al Menu Principal</a>
     </body>
 </html>

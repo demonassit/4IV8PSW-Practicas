@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Servlet;
 
 import Control.AccionesEmpleado;
-import Control.Empleado;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author demon
  */
-public class GuardarEmpleado extends HttpServlet {
+public class borrarempleado extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,30 +32,17 @@ public class GuardarEmpleado extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
             
-            String nom, pass, email, pais;
+            int id = Integer.parseInt(request.getParameter("id"));
             
-            nom = request.getParameter("nombre");
-            pass = request.getParameter("password");
-            email = request.getParameter("email");
-            pais = request.getParameter("pais");
-            
-            Empleado e = new Empleado();
-            
-            e.setNombre(nom);
-            e.setPassword(pass);
-            e.setEmail(email);
-            e.setPais(pais);
-            
-            int estatus = AccionesEmpleado.RegistrarEmpleado(e);
+            int estatus = AccionesEmpleado.borrarEmpleado(id);
             
             if(estatus > 0){
-                response.sendRedirect("empleadosguardados.jsp");
+                response.sendRedirect("consultarEmpleados.jsp");
             }else{
                 response.sendRedirect("error.jsp");
-            
             }
-            
         }
     }
 
